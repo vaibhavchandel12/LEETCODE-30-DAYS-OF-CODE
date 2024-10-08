@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int minSwaps(string s) {
+        stack<char> stack;
+        int unbalanced = 0;
+        for(int i = 0; i<s.size(); i++){
+            if(s[i] == '[')
+                stack.push(s[i]);
+            else{ // s[i] == ']'
+                if(!stack.empty()) 
+                    stack.pop();
+                else unbalanced++;
+            }
+        }
+        return (unbalanced+1)/2;
+    }
+};
